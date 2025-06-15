@@ -1,0 +1,196 @@
+/* ************************** start general css ************************** */
+@import url('https://fonts.cdnfonts.com/css/devil-breeze');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/bimbo');
+
+:root {
+    --main-color: #445022;
+    --secondary-color: #d1ff48;
+    --bg-color: #1B1B1B;
+    --default-color: #eef8ce;
+}
+
+body {
+    font-family: Poppins;
+    background-color: var(--bg-color);
+    color: var(--default-color);
+    font-size: .875rem;
+    background-image:
+        url(./../img/bg.png),
+        repeating-linear-gradient(to right, transparent 0 500px, #73814B33 500px 501px);
+    background-size: 100%;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.section {
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section .number {
+    font-family: "devil breeze";
+    font-size: 15em;
+    font-weight: bold;
+}
+
+.section .content-fit .title {
+    font-family: "devil breeze";
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.content-fit {
+    width: min(1200px, 90%);
+    margin: auto;
+    min-height: 100dvh;
+    position: relative;
+    padding-block: 10em;
+}
+
+/* ************************** end general css ************************** */
+/* ************************** start navbar ************************** */
+
+.navbar {
+    background-color: transparent;
+}
+
+.navbar :hover,
+.navbar a {
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--secondary-color);
+}
+
+.navbar-nav a {
+    font-size: 1.125rem;
+}
+
+/* ************************** end navbar ************************** */
+
+/* ************************** start header ************************** */
+
+#banner .title {
+    color: var(--secondary-color);
+    font-size: 11em;
+    font-family: "devil breeze";
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+
+#banner .title::before {
+    content: attr(data-before);
+    position: absolute;
+    top: 0.5em;
+    inset: 0.66em 0 0 0;
+    z-index: -1;
+    color: var(--main-color);
+}
+
+#banner img {
+    width: 50%;
+    bottom: 0;
+    right: 0
+}
+
+#banner img.leaf {
+    width: 30%;
+    left: 0
+}
+
+/* ************************** end header ************************** */
+/* ************************** start intro ************************** */
+
+#intro .content-fit {
+    display: flex;
+    gap: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ************************** end intro ************************** */
+
+/* ************************** start description ************************** */
+
+#description .content-fit {
+    padding-right: 30%;
+}
+
+#description .number {
+    font-size: 5em;
+}
+
+#description .title {
+    font-size: 7em;
+    font-weight: 500;
+}
+
+#description img {
+    width: 70%;
+    bottom: 0;
+    right: 0;
+    z-index: 101;
+}
+
+/* ************************** end description ************************** */
+
+/* ************************** start contact ************************** */
+#contact .content-fit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#contact table {
+    width: min(800px, 90%);
+    padding-top: 2em;
+    font-size: 2em;
+    margin: auto;
+}
+
+#contact table td {
+    padding-block: 0.5em;
+    border-bottom: 1px dashed var(--main-color);
+}
+
+#contact table td:nth-child(1) {
+    text-align: left;
+    font-weight: 500;
+}
+
+#contact table td:nth-child(2) {
+    text-align: right;
+    font-weight: 200;
+}
+
+#contact .sign {
+    font-family: 'Bimbo', sans-serif;
+    font-size: 10em;
+}
+
+/* ************************** end contact ************************** */
+#container3D {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+}

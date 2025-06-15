@@ -1,0 +1,55 @@
+@media screen and (max-width: 1200px) {
+    #banner .title {
+        font-size: 9em;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #banner .title {
+        font-size: 5em;
+    }
+
+    #intro .content-fit {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #banner {
+        overflow: hidden;
+    }
+
+    #banner .title {
+        font-size: 3em;
+    }
+
+    #banner img {
+        width: 70%;
+        right: -10%
+    }
+
+    #banner img.leaf {
+        width: 50%;
+        left: -10%;
+    }
+
+    .section .number {
+        font-size: 5em;
+    }
+
+    .section .content-fit .title {
+        font-size: 2em;
+    }
+
+    #description .content-fit {
+        padding-right: 0;
+    }
+
+    #contact table {
+        font-size: 1em;
+    }
+
+    #contact .sign {
+        font-size: 2em;
+    }
+}

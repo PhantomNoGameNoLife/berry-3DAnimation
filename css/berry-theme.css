@@ -1,0 +1,668 @@
+/* Berry Theme CSS */
+
+:root {
+    /* Berry Color Palette */
+    --berry-purple: #6B46C1;
+    --berry-magenta: #EC4899;
+    --berry-blue: #3B82F6;
+    --berry-red: #EF4444;
+    --berry-pink: #F472B6;
+    --berry-dark: #1F2937;
+    --berry-light: #F8FAFC;
+    --berry-accent: #8B5CF6;
+
+    /* Gradients */
+    --berry-gradient: linear-gradient(135deg, var(--berry-purple) 0%, var(--berry-magenta) 50%, var(--berry-blue) 100%);
+    --berry-gradient-light: linear-gradient(135deg, rgba(107, 70, 193, 0.1) 0%, rgba(236, 72, 153, 0.1) 50%, rgba(59, 130, 246, 0.1) 100%);
+}
+
+/* Global Styles */
+body {
+    background: var(--berry-gradient);
+    background-attachment: fixed;
+    color: var(--berry-light);
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(31, 41, 55, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--berry-accent);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    background: var(--berry-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900 !important;
+    font-size: 2.5rem !important;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.nav-link {
+    color: var(--berry-light) !important;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--berry-pink) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--berry-gradient);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Header Section */
+#banner {
+    background: url('../img/berry-bg.png') center/cover;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--berry-gradient-light);
+    backdrop-filter: blur(2px);
+}
+
+.title {
+    position: relative;
+    z-index: 2;
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+    background: var(--berry-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+    }
+
+    to {
+        filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.8));
+    }
+}
+
+.title[data-before]::before {
+    content: attr(data-before);
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--berry-accent);
+    letter-spacing: 0.3em;
+    opacity: 0.8;
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: 100px 0;
+    position: relative;
+}
+
+.section:nth-child(even) {
+    background: rgba(31, 41, 55, 0.3);
+}
+
+.content-fit {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    gap: 60px;
+}
+
+.number {
+    font-size: 8rem;
+    font-weight: 900;
+    background: var(--berry-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.des {
+    flex: 1;
+}
+
+.des .title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--berry-light);
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.des p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(248, 250, 252, 0.9);
+    margin-bottom: 30px;
+}
+
+/* Decorative Elements */
+.flower,
+.leaf {
+    opacity: 0.6;
+    filter: hue-rotate(180deg) saturate(1.5);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.flower {
+    top: 20%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+}
+
+.leaf {
+    bottom: 20%;
+    left: 10%;
+    width: 150px;
+    height: 150px;
+}
+
+/* Berry Pattern Overlay */
+.section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../img/berry-pattern.png') repeat;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+#contact img {
+    width: 70%;
+    bottom: 0;
+    right: 0;
+    z-index: 101;
+}
+
+/* Contact Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    color: var(--berry-light);
+    font-size: 1.1rem;
+}
+
+table td:first-child {
+    font-weight: 600;
+    color: var(--berry-accent);
+    width: 30%;
+}
+
+.sign {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--berry-pink);
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* 3D Container */
+#container3D {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .content-fit {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .number {
+        font-size: 4rem;
+    }
+
+    .des .title {
+        font-size: 2rem;
+    }
+
+    .flower,
+    .leaf {
+        width: 100px;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--berry-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--berry-gradient);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--berry-accent);
+}
+
+
+/* Additional Berry Theme Styles */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature {
+    background: rgba(139, 92, 246, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    background: rgba(139, 92, 246, 0.2);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+}
+
+.feature h4 {
+    color: var(--berry-pink);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature p {
+    color: rgba(248, 250, 252, 0.8);
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Enhanced animations */
+@keyframes berryPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+}
+
+.title:hover {
+    animation: berryPulse 1s ease-in-out;
+}
+
+/* Improved mobile responsiveness */
+@media (max-width: 576px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature {
+        padding: 20px;
+    }
+
+    .title[data-before]::before {
+        font-size: 0.9rem;
+        top: -40px;
+    }
+}
+
+
+/* Extra Small Devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.8rem !important;
+    }
+
+    .title {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .title[data-before]::before {
+        font-size: 0.8rem;
+        top: -30px;
+        letter-spacing: 0.2em;
+    }
+
+    .content-fit {
+        padding: 0 15px;
+        gap: 20px;
+        min-height: 60vh;
+    }
+
+    .number {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .des .title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .des p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .feature {
+        padding: 15px;
+    }
+
+    .feature h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .feature p {
+        font-size: 0.9rem;
+    }
+
+    table td {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .sign {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .flower,
+    .leaf {
+        width: 80px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .content-fit {
+        gap: 40px;
+        min-height: 70vh;
+    }
+
+    .number {
+        font-size: 5rem;
+    }
+
+    .des .title {
+        font-size: 2.2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .flower,
+    .leaf {
+        width: 120px;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .title {
+        font-size: 3.2rem;
+    }
+
+    .content-fit {
+        gap: 50px;
+    }
+
+    .number {
+        font-size: 6rem;
+    }
+
+    .des .title {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .flower,
+    .leaf {
+        width: 150px;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .title {
+        font-size: 3.8rem;
+    }
+
+    .content-fit {
+        gap: 55px;
+    }
+
+    .number {
+        font-size: 7rem;
+    }
+
+    .des .title {
+        font-size: 2.8rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .content-fit {
+        gap: 60px;
+    }
+
+    .number {
+        font-size: 8rem;
+    }
+
+    .des .title {
+        font-size: 3rem;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+    .section {
+        min-height: auto;
+        padding: 50px 0;
+    }
+
+    .content-fit {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .title[data-before]::before {
+        top: -40px;
+    }
+
+    .flower,
+    .leaf {
+        width: 100px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .title {
+        text-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+    }
+
+    .navbar-brand {
+        text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .title {
+        animation: none;
+    }
+
+    .flower,
+    .leaf {
+        animation: none;
+    }
+
+    .feature {
+        transition: none;
+    }
+
+    .nav-link {
+        transition: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --berry-light: #F8FAFC;
+        --berry-dark: #0F172A;
+    }
+}
+
+/* Print Styles */
+@media print {
+
+    .navbar,
+    #container3D,
+    .flower,
+    .leaf {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .title {
+        color: black;
+        text-shadow: none;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        min-height: auto;
+    }
+}
