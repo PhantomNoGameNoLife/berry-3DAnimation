@@ -59,7 +59,7 @@ let arrPositionModel = [
     },
     {
         id: "intro",
-        position: { x: getXByScreenPercent(-2000), y: 0, z: 0.6 },
+        position: { x: getXByScreenPercent(-2500), y: -10, z: 0.6 },
         rotation: { x: 0.5, y: -0.5, z: 0 }
     },
     {
@@ -69,8 +69,8 @@ let arrPositionModel = [
     },
     {
         id: "contact",
-        position: { x: getXByScreenPercent(400), y: -15, z: -80 },
-        rotation: { x: 0.3, y: -1.5, z: 0 }
+        position: { x: getXByScreenPercent(-2500), y: -15, z: -80 },
+        rotation: { x: 0.3, y: -3.5, z: 0 }
     },
 ];
 

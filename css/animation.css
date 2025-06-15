@@ -1,0 +1,23 @@
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+    }
+
+    to {
+        filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.8));
+    }
+}
+
+@keyframes berryPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+}

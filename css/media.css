@@ -1,55 +1,288 @@
-@media screen and (max-width: 1200px) {
-    #banner .title {
-        font-size: 9em;
-    }
-}
-
-@media screen and (max-width: 1023px) {
-    #banner .title {
-        font-size: 5em;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
     }
 
-    #intro .content-fit {
+    .content-fit {
         flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+
+    .des .title {
+        font-size: 2rem;
     }
 }
 
-@media screen and (max-width: 767px) {
-    #banner {
-        overflow: hidden;
+/* Improved mobile responsiveness */
+@media (max-width: 576px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    #banner .title {
-        font-size: 3em;
+    .feature {
+        padding: 20px;
     }
 
-    #banner img {
-        width: 70%;
-        right: -10%
+    .title[data-before]::before {
+        font-size: 0.9rem;
+        top: -40px;
+    }
+}
+
+
+/* Extra Small Devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.8rem !important;
     }
 
-    #banner img.leaf {
-        width: 50%;
-        left: -10%;
+    .title {
+        font-size: 2rem;
+        line-height: 1.2;
     }
 
-    .section .number {
-        font-size: 5em;
+    .title[data-before]::before {
+        font-size: 0.8rem;
+        top: -30px;
+        letter-spacing: 0.2em;
     }
 
-    .section .content-fit .title {
-        font-size: 2em;
+    .content-fit {
+        padding: 0 15px;
+        gap: 20px;
+        min-height: 60vh;
     }
 
-    #description .content-fit {
-        padding-right: 0;
+
+    .des .title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
     }
 
-    #contact table {
-        font-size: 1em;
+    .des p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
     }
 
-    #contact .sign {
-        font-size: 2em;
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .feature {
+        padding: 15px;
+    }
+
+    .feature h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .feature p {
+        font-size: 0.9rem;
+    }
+
+    table td {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .sign {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .flower,
+    .leaf {
+        width: 80px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .content-fit {
+        gap: 40px;
+        min-height: 70vh;
+    }
+
+
+    .des .title {
+        font-size: 2.2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .flower,
+    .leaf {
+        width: 120px;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .title {
+        font-size: 3.2rem;
+    }
+
+    .content-fit {
+        gap: 50px;
+    }
+
+
+    .des .title {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .flower,
+    .leaf {
+        width: 150px;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .title {
+        font-size: 3.8rem;
+    }
+
+    .content-fit {
+        gap: 55px;
+    }
+
+
+    .des .title {
+        font-size: 2.8rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .content-fit {
+        gap: 60px;
+    }
+
+    .des .title {
+        font-size: 3rem;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+    .section {
+        min-height: auto;
+        padding: 50px 0;
+    }
+
+    .content-fit {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .title[data-before]::before {
+        top: -40px;
+    }
+
+    .flower,
+    .leaf {
+        width: 100px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .title {
+        text-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+    }
+
+    .navbar-brand {
+        text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .title {
+        animation: none;
+    }
+
+    .flower,
+    .leaf {
+        animation: none;
+    }
+
+    .feature {
+        transition: none;
+    }
+
+    .nav-link {
+        transition: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --berry-light: #F8FAFC;
+        --berry-dark: #0F172A;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    #container3D,
+    .flower,
+    .leaf {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .title {
+        color: black;
+        text-shadow: none;
+    }
+
+    .section {
+        page-break-inside: avoid;
+        min-height: auto;
     }
 }
