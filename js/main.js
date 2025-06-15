@@ -3,13 +3,13 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 import { gsap } from 'https://cdn.skypack.dev/gsap';
 
 const camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 1;
+camera.position.z = 380;
 
 const scene = new THREE.Scene();
 let berry;
 
 const loader = new GLTFLoader();
-loader.load('./../blueberry.glb',
+loader.load('./../raspberry.glb',
     function (gltf) {
         berry = gltf.scene;
         berry.position.z = 0.4;
@@ -54,22 +54,22 @@ function getXByScreenPercent(percent) {
 let arrPositionModel = [
     {
         id: 'banner',
-        position: { x: getXByScreenPercent(50), y: -0.02, z: 0.5 },
+        position: { x: getXByScreenPercent(50), y: -20, z: 0.5 },
         rotation: { x: 0, y: 1.5, z: 0 }
     },
     {
         id: "intro",
-        position: { x: getXByScreenPercent(48.3), y: 0, z: 0.6 },
+        position: { x: getXByScreenPercent(-2000), y: 0, z: 0.6 },
         rotation: { x: 0.5, y: -0.5, z: 0 }
     },
     {
         id: "description",
-        position: { x: getXByScreenPercent(54), y: 0.005, z: 0.5 },
+        position: { x: getXByScreenPercent(3000), y: 0, z: 0.5 },
         rotation: { x: 0.8, y: 1, z: 0.2 }
     },
     {
         id: "contact",
-        position: { x: getXByScreenPercent(50.3), y: -0.01, z: 0.5 },
+        position: { x: getXByScreenPercent(400), y: -15, z: -80 },
         rotation: { x: 0.3, y: -1.5, z: 0 }
     },
 ];
