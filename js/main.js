@@ -9,7 +9,7 @@ const scene = new THREE.Scene();
 let berry;
 
 const loader = new GLTFLoader();
-loader.load('./../raspberry.glb',
+loader.load('./../grapes.glb',
     function (gltf) {
         berry = gltf.scene;
         berry.position.z = 0.4;
@@ -110,6 +110,10 @@ const modelMove = () => {
     }
 };
 
+if (window.innerWidth <= 567) {
+    camera.position.z = 500;
+    camera.updateProjectionMatrix();
+}
 
 window.addEventListener('scroll', () => {
     if (berry) {
