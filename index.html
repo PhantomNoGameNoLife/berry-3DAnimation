@@ -5,26 +5,18 @@
     <title>Berry Animation</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO meta tags -->
     <meta name="description" content="3D Berry Animation with interactive design">
     <meta name="author" content="Berry Design Studio">
     <meta name="keywords" content="design, animation, 3D, berry, interactive">
-    <!-- favicon ico -->
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <!-- fontawesome style -->
     <link rel="stylesheet" href="./css/all.min.css">
-    <!-- bootstrap style -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <!-- animation style -->
     <link rel="stylesheet" href="./css/animation.css">
-    <!-- berry theme style -->
     <link rel="stylesheet" href="./css/berry-theme.css">
-    <!-- media style -->
     <link rel="stylesheet" href="./css/media.css">
 </head>
 
 <body>
-    <!-- ******************************** start nav  ******************************** -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
         <div class="container">
             <a class="navbar-brand fs-2 fw-bolder" href="#">BERRY</a>
@@ -51,15 +43,13 @@
             </div>
         </div>
     </nav>
-    <!-- ******************************** end nav  ******************************** -->
     <main data-bs-spy="scroll" data-bs-target="#navbar">
-        <!-- ******************************** start header  ******************************** -->
         <header class="section" id="banner">
             <div class="content-fit">
                 <div class="title" data-before="Nature-Inspired Design">3D Berry Animation</div>
             </div>
+            <div class="treeBranchContainer" id="treeBranch-banner"></div>
         </header>
-        <!-- ******************************** end header  ******************************** -->
         <section class="section" id="intro">
             <div class="row mx-0">
                 <div class="content-fit offset-md-5 col-md-7">
@@ -78,6 +68,7 @@
                     </div>
                 </div>
             </div>
+            <div class="treeBranchContainer" id="treeBranch-intro"></div>
         </section>
         <section class="section" id="description">
             <div class="row mx-0">
@@ -107,6 +98,7 @@
                     </div>
                 </div>
             </div>
+            <div class="treeBranchContainer" id="treeBranch-description"></div>
         </section>
         <section class="section" id="contact">
             <div class="row mx-0">
@@ -143,12 +135,11 @@
                 </div>
             </div>
             <img src="./img/leaf1.png" alt="Leaf" class="position-absolute">
+            <div class="treeBranchContainer" id="treeBranch-contact"></div>
         </section>
     </main>
     <div id="container3D"></div>
-    <!-- bootstrap script -->
     <script src="./js/bootstrap.bundle.min.js"></script>
-    <!-- main script -->
     <script type="module" src="./js/main.js"></script>
 </body>
 

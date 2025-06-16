@@ -76,7 +76,6 @@ body {
 
 /* Header Section */
 #banner {
-    background: url('../img/berry-bg.png') center/cover;
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -116,8 +115,11 @@ body {
     min-height: 100vh;
     padding: 100px 0;
     position: relative;
-    background-color: #e056fd;
-    background-image: linear-gradient(315deg, #e056fd 0%, #000000 74%);
+    background-color: #fff;
+}
+
+.section:nth-child(even) {
+    background-color: #eee;
 }
 
 .content-fit {
@@ -145,12 +147,12 @@ body {
 .des p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: rgba(248, 250, 252, 0.9);
+    color: rgba(31, 41, 55, 0.9);
     margin-bottom: 30px;
 }
 
 #contact img {
-    width: 70%;
+    width: 50%;
     bottom: 0;
     left: 0;
     z-index: 101;
@@ -171,7 +173,7 @@ table {
 table td {
     padding: 15px 20px;
     border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-    color: var(--berry-light);
+    color: rgba(31, 41, 55, 0.9);
     font-size: 1.1rem;
 }
 
@@ -199,6 +201,16 @@ table td:first-child {
     height: 100%;
     pointer-events: none;
     z-index: 1;
+}
+
+.treeBranchContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%; 
+    z-index: 1; 
+    pointer-events: none;
 }
 
 /* Smooth Scrolling */
@@ -256,7 +268,7 @@ html {
 }
 
 .feature p {
-    color: rgba(248, 250, 252, 0.8);
+    color: rgba(31, 41, 55, 0.9);
     margin: 0;
     font-size: 1rem;
 }
