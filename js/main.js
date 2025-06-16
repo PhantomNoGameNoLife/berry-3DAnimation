@@ -1,6 +1,7 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 import { gsap } from 'https://cdn.skypack.dev/gsap';
+import { DRACOLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js';;
 
 const camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 380;
@@ -8,6 +9,9 @@ camera.position.z = 380;
 const scene = new THREE.Scene();
 let berry;
 const loader = new GLTFLoader();
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+loader.setDRACOLoader(dracoLoader)
 
 const branchCamera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 1000);
 branchCamera.position.z = 100;
@@ -17,7 +21,7 @@ const branchRenderers = [];
 let treeBranches = [];
 let fallingBerries = [];
 
-loader.load('./../grapes.glb',
+loader.load('./../compressed-grapes.glb',
     function (gltf) {
         berry = gltf.scene;
         berry.position.z = 0.4;
@@ -29,7 +33,7 @@ loader.load('./../grapes.glb',
     function (error) { console.error(error); }
 );
 
-loader.load('./../tree5.glb',
+loader.load('./../compressed_treebranch.glb',
     function (gltf) {
         const treeBranchModel = gltf.scene;
         const sections = ['banner', 'intro', 'description', 'contact'];
