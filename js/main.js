@@ -29,7 +29,7 @@ loader.load('./../grapes.glb',
     function (error) { console.error(error); }
 );
 
-loader.load('./../tree_branch.glb',
+loader.load('./../tree5.glb',
     function (gltf) {
         const treeBranchModel = gltf.scene;
         const sections = ['banner', 'intro', 'description', 'contact'];
@@ -38,16 +38,15 @@ loader.load('./../tree_branch.glb',
             const branchScene = new THREE.Scene();
             const branch = treeBranchModel.clone();
             if (sectionId === "intro" || sectionId == "contact") {
-                branch.position.set(getXByScreenPercent(-880), -1, 0);
+                branch.position.set(getXByScreenPercent(-880), -3, 0);
                 branch.rotation.set(0, 0, 0);
             } else {
-                branch.position.set(getXByScreenPercent(1000), 5, 0);
-                branch.rotation.set(3, 3, 0);
+                branch.position.set(getXByScreenPercent(1000), -3, 0);
+                branch.rotation.set(0, 3, 0);
             }
-            branch.scale.set(.9, .9, .9);
             branchScene.add(branch);
 
-            const branchAmbientLight = new THREE.AmbientLight(0xffffff, 1.3);
+            const branchAmbientLight = new THREE.AmbientLight(0xffffff, 4);
             branchScene.add(branchAmbientLight);
             const branchTopLight = new THREE.DirectionalLight(0xffffff, 1);
             branchTopLight.position.set(50, 50, 50);
@@ -65,8 +64,6 @@ loader.load('./../tree_branch.glb',
             branchScenes.push(branchScene);
             branchRenderers.push(branchRenderer);
             treeBranches.push({ branch, scene: branchScene, renderer: branchRenderer });
-
-            startFallingBerries(branch, branchScene, sectionId);
         });
 
         const renderBranches = () => {
@@ -161,57 +158,6 @@ const modelMove = () => {
         }
     }
 };
-
-function startFallingBerries(branch, branchScene, sectionId) {
-    setInterval(() => {
-        const fallingBerry = berry.clone();
-        let xPos;
-        if (window.innerHeight > 600) {
-            if (sectionId === 'intro' || sectionId == 'contact') {
-            xPos = getXByScreenPercent(-4500) + getXByScreenPercent(Math.random() * 4500);
-            } else {
-            xPos = getXByScreenPercent(4500) + getXByScreenPercent(Math.random() * -4500);
-            }
-        } else {
-            if (sectionId === 'intro' || sectionId == 'contact') {
-            xPos = getXByScreenPercent(-4500) + getXByScreenPercent(Math.random() * 2000);
-            } else {
-            xPos = getXByScreenPercent(4500) + getXByScreenPercent(Math.random() * -2000);
-            }
-        }
-
-        fallingBerry.position.set(
-            xPos,
-            branch.position.y,
-            -300
-        );
-        fallingBerry.scale.set(0.25, 0.25, 0.25);
-        branchScene.add(fallingBerry);
-        fallingBerries.push(fallingBerry);
-
-        let targetY = fallingBerry.position.y - 30;
-        if (window.innerHeight > 600) {
-            targetY = -40;
-        }
-        gsap.to(fallingBerry.position, {
-            y: targetY,
-            duration: 3,
-            ease: "power1.in",
-            onComplete: () => {
-            branchScene.remove(fallingBerry);
-            fallingBerries = fallingBerries.filter(b => b !== fallingBerry);
-            }
-        });
-
-        gsap.to(fallingBerry.rotation, {
-            x: Math.random() * Math.PI,
-            y: Math.random() * Math.PI,
-            z: Math.random() * Math.PI,
-            duration: 3,
-            ease: "none"
-        });
-    }, 1000);
-}
 
 if (window.innerWidth <= 567) {
     camera.position.z = 500;
