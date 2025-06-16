@@ -165,30 +165,41 @@ const modelMove = () => {
 function startFallingBerries(branch, branchScene, sectionId) {
     setInterval(() => {
         const fallingBerry = berry.clone();
-        if (sectionId === 'intro' || sectionId == 'contact') {
-            fallingBerry.position.set(
-                getXByScreenPercent(-4500) + getXByScreenPercent(Math.random() * 2000),
-                branch.position.y,
-                -300
-            );
+        let xPos;
+        if (window.innerHeight > 600) {
+            if (sectionId === 'intro' || sectionId == 'contact') {
+            xPos = getXByScreenPercent(-4500) + getXByScreenPercent(Math.random() * 4500);
+            } else {
+            xPos = getXByScreenPercent(4500) + getXByScreenPercent(Math.random() * -4500);
+            }
         } else {
-            fallingBerry.position.set(
-                getXByScreenPercent(4500) + getXByScreenPercent(Math.random() * -2000),
-                branch.position.y,
-                -300
-            );
+            if (sectionId === 'intro' || sectionId == 'contact') {
+            xPos = getXByScreenPercent(-4500) + getXByScreenPercent(Math.random() * 2000);
+            } else {
+            xPos = getXByScreenPercent(4500) + getXByScreenPercent(Math.random() * -2000);
+            }
         }
+
+        fallingBerry.position.set(
+            xPos,
+            branch.position.y,
+            -300
+        );
         fallingBerry.scale.set(0.25, 0.25, 0.25);
         branchScene.add(fallingBerry);
         fallingBerries.push(fallingBerry);
 
+        let targetY = fallingBerry.position.y - 30;
+        if (window.innerHeight > 600) {
+            targetY = -40;
+        }
         gsap.to(fallingBerry.position, {
-            y: fallingBerry.position.y - 30,
+            y: targetY,
             duration: 3,
             ease: "power1.in",
             onComplete: () => {
-                branchScene.remove(fallingBerry);
-                fallingBerries = fallingBerries.filter(b => b !== fallingBerry);
+            branchScene.remove(fallingBerry);
+            fallingBerries = fallingBerries.filter(b => b !== fallingBerry);
             }
         });
 
