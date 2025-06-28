@@ -33,55 +33,6 @@ loader.load('./../compressed-grapes.glb',
     function (error) { console.error(error); }
 );
 
-loader.load('./../compressed_treebranch.glb',
-    function (gltf) {
-        const treeBranchModel = gltf.scene;
-        const sections = ['banner', 'intro', 'description', 'contact'];
-
-        sections.forEach((sectionId) => {
-            const branchScene = new THREE.Scene();
-            const branch = treeBranchModel.clone();
-            if (sectionId === "intro" || sectionId == "contact") {
-                branch.position.set(getXByScreenPercent(-880), -3, 0);
-                branch.rotation.set(0, 0, 0);
-            } else {
-                branch.position.set(getXByScreenPercent(1000), -3, 0);
-                branch.rotation.set(0, 3, 0);
-            }
-            branchScene.add(branch);
-
-            const branchAmbientLight = new THREE.AmbientLight(0xffffff, 4);
-            branchScene.add(branchAmbientLight);
-            const branchTopLight = new THREE.DirectionalLight(0xffffff, 1);
-            branchTopLight.position.set(50, 50, 50);
-            branchScene.add(branchTopLight);
-
-            const branchRenderer = new THREE.WebGLRenderer({ alpha: true });
-            branchRenderer.setSize(window.innerWidth, window.innerHeight);
-            const container = document.getElementById(`treeBranch-${sectionId}`);
-            if (container) {
-                container.appendChild(branchRenderer.domElement);
-            } else {
-                console.error(`Container treeBranch-${sectionId} not found`);
-            }
-
-            branchScenes.push(branchScene);
-            branchRenderers.push(branchRenderer);
-            treeBranches.push({ branch, scene: branchScene, renderer: branchRenderer });
-        });
-
-        const renderBranches = () => {
-            requestAnimationFrame(renderBranches);
-            treeBranches.forEach(({ renderer, scene }) => {
-                renderer.render(scene, branchCamera);
-            });
-        };
-        renderBranches();
-    },
-    function (xhr) { },
-    function (error) { console.error(error); }
-);
-
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('container3D').appendChild(renderer.domElement);
